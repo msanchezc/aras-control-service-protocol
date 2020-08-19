@@ -1,0 +1,9 @@
+from aras_control_service_protocol.emitters import TakeOffEventEmmiter
+from aras_control_service_protocol.events import TakeOffEvent
+
+CONTROL_SERVICE_IP = "localhost:1234"
+
+take_off_emmiter = TakeOffEventEmmiter(CONTROL_SERVICE_IP)
+take_off_emmiter.emmit(TakeOffEvent.TAKE_OFF_CONNECTED_BUT_FAILED)
+take_off_emmiter.emmit(TakeOffEvent.TAKE_OFF_CONNECTION_FAILED)
+take_off_emmiter.emmit(TakeOffEvent.TAKE_OFF_DONE)
