@@ -10,9 +10,12 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+with open("requirements.txt", "r") as fh:
+    requirements = fh.readlines()
 
-setup_requirements = ['pytest-runner', 'grpcio==1.31.0', 'grpcio-tools==1.31.0']
+requirements = []
+
+setup_requirements = ['pytest-runner']
 
 test_requirements = ['pytest>=3', ]
 
@@ -34,7 +37,8 @@ setup(
     include_package_data=True,
     keywords='aras_control_service_protocol',
     name='aras_control_service_protocol',
-    packages=find_packages(include=['aras_control_service_protocol', 'aras_control_service_protocol.*']),
+    packages=find_packages(
+        include=['aras_control_service_protocol', 'aras_control_service_protocol.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
