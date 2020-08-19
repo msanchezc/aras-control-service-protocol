@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+service GoToMissionWaitingAreaActions{
+    rpc StartTakeoff(Drone) returns (ACK);
+    rpc StartGoUp(GoUpMessage) returns (ACK);
+}
+
+service GoToMissionWaitingAreaEvents{
+    rpc Take_Off_Connection_Failed(DroneIdentifier) returns (ACK);
+    rpc Take_Off_Connected_But_Failed(DroneIdentifier) returns (ACK);
+    rpc Take_Off_Done(DroneIdentifier) returns (ACK);
+
+    rpc Go_Up_Failed(DroneIdentifier) returns (ACK);
+    rpc Go_Up_Set_Settings_Failed(DroneIdentifier) returns (ACK);
+    rpc Go_Up_Set_Settings_Done(DroneIdentifier) returns (ACK);
+    rpc Go_Up_Done(DroneIdentifier) returns (ACK);
+}
+
+message DroneIdentifier {
+    string owner_id = 1;
+    string base_id = 2;
+    string drone_id = 3;
+}
+
+message DroneAccessData {
+    string data = 1; // An json information about ips, ports, tokens, etc
+}
+
+message Drone {
+    DroneIdentifier identifier = 1;
+    DroneAccessData access_data = 2;
+}
+
+message GoUpMessage {
+    Drone drone = 1;
+    int32 altitude = 2; // meters
+    int32 roll = 3; // meters
+}
+
+message ACK {}

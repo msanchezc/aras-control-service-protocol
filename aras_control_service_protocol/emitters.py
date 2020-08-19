@@ -1,30 +1,58 @@
 import grpc
-from aras_control_service_protocol.generated import aras_control_service_protocol_pb2, aras_control_service_protocol_pb2_grpc
-from aras_control_service_protocol.events import TakeOffEvent
+from aras_control_service_protocol.events import TakeOffEvent, GoUpEvent
+from aras_control_service_protocol.messages import DroneIdentifier
+from aras_control_service_protocol._stubs import (
+    GoToMissionWaitingAreaEventsStub
+)
 
-class _ControlServiceEmmiter:
+
+class _ControlServiceEmiter:
     def __init__(self, control_service_ip):
         self.control_service_ip = control_service_ip
         self.channel = grpc.insecure_channel(self.control_service_ip)
 
-    def _emmit(self, stub_method):
-        response = stub_method(aras_control_service_protocol_pb2.Empty())
-        return response
 
-
-class TakeOffEventEmmiter(_ControlServiceEmmiter):
-    def emmit(self, take_off_event):
+class TakeOffEventEmitter(_ControlServiceEmiter):
+    def emit(self, take_off_event, drone_identifier):
         """
         Args:
             take_off_event: An TakeOffEvent instance
+            drone_identifier: An DroneIdentifier instance
         """
-        assert isinstance(take_off_event, TakeOffEvent)
         assert "Channel must be READY", self.channel is not None
-        stub = aras_control_service_protocol_pb2_grpc.GoToMissionWaitingAreaStub(self.channel)
+        assert isinstance(drone_identifier, DroneIdentifier)
+        assert isinstance(take_off_event, TakeOffEvent)
+
+        stub = GoToMissionWaitingAreaEventsStub(self.channel)
+
         if take_off_event == TakeOffEvent.TAKE_OFF_CONNECTED_BUT_FAILED:
-            stub_method = stub.Take_Off_Connected_But_Failed
+            response = stub.Take_Off_Connected_But_Failed(drone_identifier)
         elif take_off_event == TakeOffEvent.TAKE_OFF_CONNECTION_FAILED:
-            stub_method = stub.Take_Off_Connection_Failed
+            response = stub.Take_Off_Connection_Failed(drone_identifier)
         elif take_off_event == TakeOffEvent.TAKE_OFF_DONE:
-            stub_method = stub.Take_Off_Done
-        return self._emmit(stub_method)
+            response = stub.Take_Off_Done(drone_identifier)
+        return response
+
+
+class GoUpEmitter(_ControlServiceEmiter):
+    def emit(self, go_up_event, drone_identifier):
+        """
+        Args:
+            go_up_event: An GoUpEvent instance
+            drone_identifier: An DroneIdentifier instance
+        """
+        assert "Channel must be READY", self.channel is not None
+        assert isinstance(drone_identifier, DroneIdentifier)
+        assert isinstance(go_up_event, GoUpEvent)
+
+        stub = GoToMissionWaitingAreaEventsStub(self.channel)
+
+        if go_up_event == GoUpEvent.GO_UP_FAILED:
+            response = stub.Go_Up_Failed(drone_identifier)
+        elif go_up_event == GoUpEvent.GO_UP_SET_SETTINGS_FAILED:
+            response = stub.Go_Up_Set_Settings_Failed(drone_identifier)
+        elif go_up_event == GoUpEvent.GO_UP_SET_SETTINGS_DONE:
+            response = stub.Go_Up_Set_Settings_Done(drone_identifier)
+        elif go_up_event == GoUpEvent.GO_UP_DONE:
+            response = stub.Go_Up_Done(drone_identifier)
+        return response

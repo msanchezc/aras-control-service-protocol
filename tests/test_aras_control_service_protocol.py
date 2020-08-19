@@ -5,7 +5,7 @@
 import pytest
 
 
-from aras_control_service_protocol import aras_control_service_protocol
+# from aras_control_service_protocol import aras_control_service_protocol
 
 
 @pytest.fixture

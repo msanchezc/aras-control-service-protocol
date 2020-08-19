@@ -12,7 +12,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [ ]
 
-setup_requirements = ['pytest-runner', 'grpcio-tools==1.31.0']
+setup_requirements = ['pytest-runner', 'grpcio==1.31.0', 'grpcio-tools==1.31.0']
 
 test_requirements = ['pytest>=3', ]
 
@@ -25,10 +25,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
     description="An protocol definition to communicate with ARAS control service",

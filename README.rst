@@ -3,19 +3,19 @@ ARAS control service protocol
 =============================
 
 
-.. image:: https://img.shields.io/pypi/v/aras_control_service_protocol.svg
-        :target: https://pypi.python.org/pypi/aras_control_service_protocol
+.. image:: https://img.shields.io/pypi/v/aras-control-service-protocol.svg
+        :target: https://pypi.python.org/pypi/aras-control-service-protocol
 
-.. image:: https://img.shields.io/travis/cartovarc/aras_control_service_protocol.svg
-        :target: https://travis-ci.com/cartovarc/aras_control_service_protocol
+.. image:: https://img.shields.io/travis/PSBPOSAS/aras-control-service-protocol.svg
+        :target: https://travis-ci.org/PSBPOSAS/aras-control-service-protocol
 
 .. image:: https://readthedocs.org/projects/aras-control-service-protocol/badge/?version=latest
         :target: https://aras-control-service-protocol.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/cartovarc/aras_control_service_protocol/shield.svg
-     :target: https://pyup.io/repos/github/cartovarc/aras_control_service_protocol/
+.. image:: https://pyup.io/repos/github/PSBPOSAS/aras-control-service-protocol/shield.svg
+     :target: https://pyup.io/repos/github/PSBPOSAS/aras-control-service-protocol/
      :alt: Updates
 
 
