@@ -5,7 +5,7 @@ import grpc
 from aras_control_service_protocol.generated import protocol_pb2 as protocol__pb2
 
 
-class GoToMissionWaitingAreaActionsStub(object):
+class ControlServiceEventsActionsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,18 +15,18 @@ class GoToMissionWaitingAreaActionsStub(object):
             channel: A grpc.Channel.
         """
         self.StartTakeoff = channel.unary_unary(
-                '/GoToMissionWaitingAreaActions/StartTakeoff',
+                '/ControlServiceEventsActions/StartTakeoff',
                 request_serializer=protocol__pb2.Drone.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.StartGoUp = channel.unary_unary(
-                '/GoToMissionWaitingAreaActions/StartGoUp',
+                '/ControlServiceEventsActions/StartGoUp',
                 request_serializer=protocol__pb2.GoUpMessage.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
 
 
-class GoToMissionWaitingAreaActionsServicer(object):
+class ControlServiceEventsActionsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def StartTakeoff(self, request, context):
@@ -42,7 +42,7 @@ class GoToMissionWaitingAreaActionsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_GoToMissionWaitingAreaActionsServicer_to_server(servicer, server):
+def add_ControlServiceEventsActionsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StartTakeoff': grpc.unary_unary_rpc_method_handler(
                     servicer.StartTakeoff,
@@ -56,12 +56,12 @@ def add_GoToMissionWaitingAreaActionsServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'GoToMissionWaitingAreaActions', rpc_method_handlers)
+            'ControlServiceEventsActions', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class GoToMissionWaitingAreaActions(object):
+class ControlServiceEventsActions(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -75,7 +75,7 @@ class GoToMissionWaitingAreaActions(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaActions/StartTakeoff',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsActions/StartTakeoff',
             protocol__pb2.Drone.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -92,14 +92,14 @@ class GoToMissionWaitingAreaActions(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaActions/StartGoUp',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsActions/StartGoUp',
             protocol__pb2.GoUpMessage.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
-class GoToMissionWaitingAreaEventsStub(object):
+class ControlServiceEventsEventsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -109,43 +109,43 @@ class GoToMissionWaitingAreaEventsStub(object):
             channel: A grpc.Channel.
         """
         self.Take_Off_Connection_Failed = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Take_Off_Connection_Failed',
+                '/ControlServiceEventsEvents/Take_Off_Connection_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Take_Off_Connected_But_Failed = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Take_Off_Connected_But_Failed',
+                '/ControlServiceEventsEvents/Take_Off_Connected_But_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Take_Off_Done = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Take_Off_Done',
+                '/ControlServiceEventsEvents/Take_Off_Done',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Failed = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Go_Up_Failed',
+                '/ControlServiceEventsEvents/Go_Up_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Set_Settings_Failed = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Go_Up_Set_Settings_Failed',
+                '/ControlServiceEventsEvents/Go_Up_Set_Settings_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Set_Settings_Done = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Go_Up_Set_Settings_Done',
+                '/ControlServiceEventsEvents/Go_Up_Set_Settings_Done',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Done = channel.unary_unary(
-                '/GoToMissionWaitingAreaEvents/Go_Up_Done',
+                '/ControlServiceEventsEvents/Go_Up_Done',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
 
 
-class GoToMissionWaitingAreaEventsServicer(object):
+class ControlServiceEventsEventsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Take_Off_Connection_Failed(self, request, context):
@@ -191,7 +191,7 @@ class GoToMissionWaitingAreaEventsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_GoToMissionWaitingAreaEventsServicer_to_server(servicer, server):
+def add_ControlServiceEventsEventsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Take_Off_Connection_Failed': grpc.unary_unary_rpc_method_handler(
                     servicer.Take_Off_Connection_Failed,
@@ -230,12 +230,12 @@ def add_GoToMissionWaitingAreaEventsServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'GoToMissionWaitingAreaEvents', rpc_method_handlers)
+            'ControlServiceEventsEvents', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class GoToMissionWaitingAreaEvents(object):
+class ControlServiceEventsEvents(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -249,7 +249,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Take_Off_Connection_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Take_Off_Connection_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -266,7 +266,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Take_Off_Connected_But_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Take_Off_Connected_But_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -283,7 +283,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Take_Off_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Take_Off_Done',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -300,7 +300,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Go_Up_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -317,7 +317,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Go_Up_Set_Settings_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Set_Settings_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -334,7 +334,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Go_Up_Set_Settings_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Set_Settings_Done',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -351,7 +351,7 @@ class GoToMissionWaitingAreaEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/GoToMissionWaitingAreaEvents/Go_Up_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Done',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,

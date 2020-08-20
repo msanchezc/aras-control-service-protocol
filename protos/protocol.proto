@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-service GoToMissionWaitingAreaActions{
+service ControlServiceEventsActions{
     rpc StartTakeoff(Drone) returns (ACK);
     rpc StartGoUp(GoUpMessage) returns (ACK);
 }
 
-service GoToMissionWaitingAreaEvents{
+service ControlServiceEventsEvents{
     rpc Take_Off_Connection_Failed(DroneIdentifier) returns (ACK);
     rpc Take_Off_Connected_But_Failed(DroneIdentifier) returns (ACK);
     rpc Take_Off_Done(DroneIdentifier) returns (ACK);
