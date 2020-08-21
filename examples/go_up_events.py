@@ -2,7 +2,7 @@ from aras_control_service_protocol.emitters import GoUpEmitter
 from aras_control_service_protocol.events import GoUpEvent
 from aras_control_service_protocol.messages import DroneIdentifier
 
-CONTROL_SERVICE_IP = "localhost:1234"
+CONTROL_SERVICE_IP = "localhost:50052"
 
 drone_identifier = DroneIdentifier(
     owner_id="lab", base_id="base_lab", drone_id="apolo")
