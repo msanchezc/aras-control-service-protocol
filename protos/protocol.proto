@@ -5,7 +5,7 @@ service ControlServiceEventsActions{
     rpc StartGoUp(GoUpMessage) returns (ACK);
 }
 
-service ControlServiceEventsEvents{
+service ControlServiceEvents{
     rpc Take_Off_Connection_Failed(DroneIdentifier) returns (ACK);
     rpc Take_Off_Connected_But_Failed(DroneIdentifier) returns (ACK);
     rpc Take_Off_Done(DroneIdentifier) returns (ACK);

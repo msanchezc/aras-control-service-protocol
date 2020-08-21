@@ -99,7 +99,7 @@ class ControlServiceEventsActions(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
-class ControlServiceEventsEventsStub(object):
+class ControlServiceEventsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -109,43 +109,43 @@ class ControlServiceEventsEventsStub(object):
             channel: A grpc.Channel.
         """
         self.Take_Off_Connection_Failed = channel.unary_unary(
-                '/ControlServiceEventsEvents/Take_Off_Connection_Failed',
+                '/ControlServiceEvents/Take_Off_Connection_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Take_Off_Connected_But_Failed = channel.unary_unary(
-                '/ControlServiceEventsEvents/Take_Off_Connected_But_Failed',
+                '/ControlServiceEvents/Take_Off_Connected_But_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Take_Off_Done = channel.unary_unary(
-                '/ControlServiceEventsEvents/Take_Off_Done',
+                '/ControlServiceEvents/Take_Off_Done',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Failed = channel.unary_unary(
-                '/ControlServiceEventsEvents/Go_Up_Failed',
+                '/ControlServiceEvents/Go_Up_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Set_Settings_Failed = channel.unary_unary(
-                '/ControlServiceEventsEvents/Go_Up_Set_Settings_Failed',
+                '/ControlServiceEvents/Go_Up_Set_Settings_Failed',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Set_Settings_Done = channel.unary_unary(
-                '/ControlServiceEventsEvents/Go_Up_Set_Settings_Done',
+                '/ControlServiceEvents/Go_Up_Set_Settings_Done',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.Go_Up_Done = channel.unary_unary(
-                '/ControlServiceEventsEvents/Go_Up_Done',
+                '/ControlServiceEvents/Go_Up_Done',
                 request_serializer=protocol__pb2.DroneIdentifier.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
 
 
-class ControlServiceEventsEventsServicer(object):
+class ControlServiceEventsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Take_Off_Connection_Failed(self, request, context):
@@ -191,7 +191,7 @@ class ControlServiceEventsEventsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ControlServiceEventsEventsServicer_to_server(servicer, server):
+def add_ControlServiceEventsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Take_Off_Connection_Failed': grpc.unary_unary_rpc_method_handler(
                     servicer.Take_Off_Connection_Failed,
@@ -230,12 +230,12 @@ def add_ControlServiceEventsEventsServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ControlServiceEventsEvents', rpc_method_handlers)
+            'ControlServiceEvents', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ControlServiceEventsEvents(object):
+class ControlServiceEvents(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -249,7 +249,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Take_Off_Connection_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Take_Off_Connection_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -266,7 +266,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Take_Off_Connected_But_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Take_Off_Connected_But_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -283,7 +283,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Take_Off_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Take_Off_Done',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -300,7 +300,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -317,7 +317,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Set_Settings_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Set_Settings_Failed',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -334,7 +334,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Set_Settings_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Set_Settings_Done',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -351,7 +351,7 @@ class ControlServiceEventsEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsEvents/Go_Up_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Done',
             protocol__pb2.DroneIdentifier.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,

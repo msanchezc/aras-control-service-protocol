@@ -2,7 +2,7 @@ import grpc
 from aras_control_service_protocol.events import TakeOffEvent, GoUpEvent
 from aras_control_service_protocol.messages import DroneIdentifier
 from aras_control_service_protocol._stubs import (
-    ControlServiceEventsEventsStub
+    ControlServiceEventsStub
 )
 
 
@@ -23,7 +23,7 @@ class TakeOffEventEmitter(_ControlServiceEmiter):
         assert isinstance(drone_identifier, DroneIdentifier)
         assert isinstance(take_off_event, TakeOffEvent)
 
-        stub = ControlServiceEventsEventsStub(self.channel)
+        stub = ControlServiceEventsStub(self.channel)
 
         if take_off_event == TakeOffEvent.TAKE_OFF_CONNECTED_BUT_FAILED:
             response = stub.Take_Off_Connected_But_Failed(drone_identifier)
@@ -45,7 +45,7 @@ class GoUpEmitter(_ControlServiceEmiter):
         assert isinstance(drone_identifier, DroneIdentifier)
         assert isinstance(go_up_event, GoUpEvent)
 
-        stub = ControlServiceEventsEventsStub(self.channel)
+        stub = ControlServiceEventsStub(self.channel)
 
         if go_up_event == GoUpEvent.GO_UP_FAILED:
             response = stub.Go_Up_Failed(drone_identifier)
