@@ -22,13 +22,10 @@ message DroneIdentifier {
     string drone_id = 3;
 }
 
-message DroneAccessData {
-    string data = 1; // An json information about ips, ports, tokens, etc
-}
-
 message Drone {
     DroneIdentifier identifier = 1;
-    DroneAccessData access_data = 2;
+    string access_data = 2;  // An json information about ips, ports, tokens, etc
+    string control_service_ip = 3;
 }
 
 message GoUpMessage {
