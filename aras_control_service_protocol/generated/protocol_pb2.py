@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprotocol.proto\"F\n\x0f\x44roneIdentifier\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x02 \x01(\t\x12\x10\n\x08\x64rone_id\x18\x03 \x01(\t\"\x1f\n\x0f\x44roneAccessData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"T\n\x05\x44rone\x12$\n\nidentifier\x18\x01 \x01(\x0b\x32\x10.DroneIdentifier\x12%\n\x0b\x61\x63\x63\x65ss_data\x18\x02 \x01(\x0b\x32\x10.DroneAccessData\"D\n\x0bGoUpMessage\x12\x15\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x06.Drone\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K2\\\n\x1b\x43ontrolServiceEventsActions\x12\x1c\n\x0cStartTakeoff\x12\x06.Drone\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\xe4\x02\n\x14\x43ontrolServiceEvents\x12\x34\n\x1aTake_Off_Connection_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x37\n\x1dTake_Off_Connected_But_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\'\n\rTake_Off_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12&\n\x0cGo_Up_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x33\n\x19Go_Up_Set_Settings_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x31\n\x17Go_Up_Set_Settings_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12$\n\nGo_Up_Done\x12\x10.DroneIdentifier\x1a\x04.ACKb\x06proto3'
+  serialized_pb=b'\n\x0eprotocol.proto\"F\n\x0f\x44roneIdentifier\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x02 \x01(\t\x12\x10\n\x08\x64rone_id\x18\x03 \x01(\t\"\x1f\n\x0f\x44roneAccessData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"T\n\x05\x44rone\x12$\n\nidentifier\x18\x01 \x01(\x0b\x32\x10.DroneIdentifier\x12%\n\x0b\x61\x63\x63\x65ss_data\x18\x02 \x01(\x0b\x32\x10.DroneAccessData\"D\n\x0bGoUpMessage\x12\x15\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x06.Drone\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K2V\n\x15\x43ontrolServiceActions\x12\x1c\n\x0cStartTakeoff\x12\x06.Drone\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\xe4\x02\n\x14\x43ontrolServiceEvents\x12\x34\n\x1aTake_Off_Connection_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x37\n\x1dTake_Off_Connected_But_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\'\n\rTake_Off_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12&\n\x0cGo_Up_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x33\n\x19Go_Up_Set_Settings_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x31\n\x17Go_Up_Set_Settings_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12$\n\nGo_Up_Done\x12\x10.DroneIdentifier\x1a\x04.ACKb\x06proto3'
 )
 
 
@@ -259,19 +259,19 @@ _sym_db.RegisterMessage(ACK)
 
 
 
-_CONTROLSERVICEEVENTSACTIONS = _descriptor.ServiceDescriptor(
-  name='ControlServiceEventsActions',
-  full_name='ControlServiceEventsActions',
+_CONTROLSERVICEACTIONS = _descriptor.ServiceDescriptor(
+  name='ControlServiceActions',
+  full_name='ControlServiceActions',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=286,
-  serialized_end=378,
+  serialized_end=372,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartTakeoff',
-    full_name='ControlServiceEventsActions.StartTakeoff',
+    full_name='ControlServiceActions.StartTakeoff',
     index=0,
     containing_service=None,
     input_type=_DRONE,
@@ -281,7 +281,7 @@ _CONTROLSERVICEEVENTSACTIONS = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StartGoUp',
-    full_name='ControlServiceEventsActions.StartGoUp',
+    full_name='ControlServiceActions.StartGoUp',
     index=1,
     containing_service=None,
     input_type=_GOUPMESSAGE,
@@ -290,9 +290,9 @@ _CONTROLSERVICEEVENTSACTIONS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_CONTROLSERVICEEVENTSACTIONS)
+_sym_db.RegisterServiceDescriptor(_CONTROLSERVICEACTIONS)
 
-DESCRIPTOR.services_by_name['ControlServiceEventsActions'] = _CONTROLSERVICEEVENTSACTIONS
+DESCRIPTOR.services_by_name['ControlServiceActions'] = _CONTROLSERVICEACTIONS
 
 
 _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
@@ -302,8 +302,8 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=381,
-  serialized_end=737,
+  serialized_start=375,
+  serialized_end=731,
   methods=[
   _descriptor.MethodDescriptor(
     name='Take_Off_Connection_Failed',

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-service ControlServiceEventsActions{
+service ControlServiceActions{
     rpc StartTakeoff(Drone) returns (ACK);
     rpc StartGoUp(GoUpMessage) returns (ACK);
 }

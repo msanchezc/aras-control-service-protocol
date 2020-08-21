@@ -5,7 +5,7 @@ import grpc
 from aras_control_service_protocol.generated import protocol_pb2 as protocol__pb2
 
 
-class ControlServiceEventsActionsStub(object):
+class ControlServiceActionsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,18 +15,18 @@ class ControlServiceEventsActionsStub(object):
             channel: A grpc.Channel.
         """
         self.StartTakeoff = channel.unary_unary(
-                '/ControlServiceEventsActions/StartTakeoff',
+                '/ControlServiceActions/StartTakeoff',
                 request_serializer=protocol__pb2.Drone.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
         self.StartGoUp = channel.unary_unary(
-                '/ControlServiceEventsActions/StartGoUp',
+                '/ControlServiceActions/StartGoUp',
                 request_serializer=protocol__pb2.GoUpMessage.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
 
 
-class ControlServiceEventsActionsServicer(object):
+class ControlServiceActionsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def StartTakeoff(self, request, context):
@@ -42,7 +42,7 @@ class ControlServiceEventsActionsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ControlServiceEventsActionsServicer_to_server(servicer, server):
+def add_ControlServiceActionsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StartTakeoff': grpc.unary_unary_rpc_method_handler(
                     servicer.StartTakeoff,
@@ -56,12 +56,12 @@ def add_ControlServiceEventsActionsServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ControlServiceEventsActions', rpc_method_handlers)
+            'ControlServiceActions', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ControlServiceEventsActions(object):
+class ControlServiceActions(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -75,7 +75,7 @@ class ControlServiceEventsActions(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsActions/StartTakeoff',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceActions/StartTakeoff',
             protocol__pb2.Drone.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
@@ -92,7 +92,7 @@ class ControlServiceEventsActions(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEventsActions/StartGoUp',
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceActions/StartGoUp',
             protocol__pb2.GoUpMessage.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
