@@ -1,7 +1,7 @@
 import grpc
 from aras_control_service_protocol.events import TakeOffEvent, GoUpEvent
 from aras_control_service_protocol.actions import TakeOffAction, GoUpAction
-from aras_control_service_protocol.messages import Drone, GoUpMessage
+from aras_control_service_protocol.messages import Drone, GoUpMessage, DroneIdentifier
 from aras_control_service_protocol._stubs import (
     ControlServiceEventsStub,
     ControlServiceActionsStub
