@@ -19,84 +19,136 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprotocol.proto\"F\n\x0f\x44roneIdentifier\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x02 \x01(\t\x12\x10\n\x08\x64rone_id\x18\x03 \x01(\t\"^\n\x05\x44rone\x12$\n\nidentifier\x18\x01 \x01(\x0b\x32\x10.DroneIdentifier\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x02 \x01(\t\x12\x1a\n\x12\x63ontrol_service_ip\x18\x03 \x01(\t\"D\n\x0bGoUpMessage\x12\x15\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x06.Drone\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K2V\n\x15\x43ontrolServiceActions\x12\x1c\n\x0cStartTakeoff\x12\x06.Drone\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\xe4\x02\n\x14\x43ontrolServiceEvents\x12\x34\n\x1aTake_Off_Connection_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x37\n\x1dTake_Off_Connected_But_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\'\n\rTake_Off_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12&\n\x0cGo_Up_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x33\n\x19Go_Up_Set_Settings_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x31\n\x17Go_Up_Set_Settings_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12$\n\nGo_Up_Done\x12\x10.DroneIdentifier\x1a\x04.ACKb\x06proto3'
+  serialized_pb=b'\n\x0eprotocol.proto\"\x96\x01\n\x06\x44\x65vice\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.Device.DeviceType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x03 \x01(\t\"I\n\nDeviceType\x12\t\n\x05\x44RONE\x10\x00\x12\x1b\n\x17\x42\x41TTERY_CHARGING_SYSTEM\x10\x01\x12\x13\n\x0fWEATHER_STATION\x10\x02\"\xb5\x01\n\tStartInfo\x12 \n\x18\x61ras_update_info_api_url\x18\x01 \x01(\t\x12\x10\n\x08owner_id\x18\x02 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x03 \x01(\t\x12\x17\n\x06\x64rones\x18\x04 \x03(\x0b\x32\x07.Device\x12(\n\x17\x62\x61ttery_charging_system\x18\x05 \x01(\x0b\x32\x07.Device\x12 \n\x0fweather_station\x18\x06 \x01(\x0b\x32\x07.Device\"E\n\x0bGoUpMessage\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K\"\x04\n\x02OK\"\x07\n\x05\x45mpty2W\n\x15\x43ontrolServiceActions\x12\x1d\n\x0cStartTakeoff\x12\x07.Device\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\xf0\x02\n\x14\x43ontrolServiceEvents\x12&\n\x13StartControlService\x12\n.StartInfo\x1a\x03.OK\x12!\n\x12StopControlService\x12\x06.Empty\x1a\x03.OK\x12+\n\x1aTake_Off_Connection_Failed\x12\x07.Device\x1a\x04.ACK\x12.\n\x1dTake_Off_Connected_But_Failed\x12\x07.Device\x1a\x04.ACK\x12\x1e\n\rTake_Off_Done\x12\x07.Device\x1a\x04.ACK\x12\x1d\n\x0cGo_Up_Failed\x12\x07.Device\x1a\x04.ACK\x12*\n\x19Go_Up_Set_Settings_Failed\x12\x07.Device\x1a\x04.ACK\x12(\n\x17Go_Up_Set_Settings_Done\x12\x07.Device\x1a\x04.ACK\x12\x1b\n\nGo_Up_Done\x12\x07.Device\x1a\x04.ACKb\x06proto3'
 )
 
 
 
+_DEVICE_DEVICETYPE = _descriptor.EnumDescriptor(
+  name='DeviceType',
+  full_name='Device.DeviceType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DRONE', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BATTERY_CHARGING_SYSTEM', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WEATHER_STATION', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=96,
+  serialized_end=169,
+)
+_sym_db.RegisterEnumDescriptor(_DEVICE_DEVICETYPE)
 
-_DRONEIDENTIFIER = _descriptor.Descriptor(
-  name='DroneIdentifier',
-  full_name='DroneIdentifier',
+
+_DEVICE = _descriptor.Descriptor(
+  name='Device',
+  full_name='Device',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='owner_id', full_name='DroneIdentifier.owner_id', index=0,
+      name='type', full_name='Device.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='Device.id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='access_data', full_name='Device.access_data', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _DEVICE_DEVICETYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=19,
+  serialized_end=169,
+)
+
+
+_STARTINFO = _descriptor.Descriptor(
+  name='StartInfo',
+  full_name='StartInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='aras_update_info_api_url', full_name='StartInfo.aras_update_info_api_url', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='base_id', full_name='DroneIdentifier.base_id', index=1,
+      name='owner_id', full_name='StartInfo.owner_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='drone_id', full_name='DroneIdentifier.drone_id', index=2,
+      name='base_id', full_name='StartInfo.base_id', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=18,
-  serialized_end=88,
-)
-
-
-_DRONE = _descriptor.Descriptor(
-  name='Drone',
-  full_name='Drone',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
     _descriptor.FieldDescriptor(
-      name='identifier', full_name='Drone.identifier', index=0,
-      number=1, type=11, cpp_type=10, label=1,
+      name='drones', full_name='StartInfo.drones', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='battery_charging_system', full_name='StartInfo.battery_charging_system', index=4,
+      number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='access_data', full_name='Drone.access_data', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='control_service_ip', full_name='Drone.control_service_ip', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='weather_station', full_name='StartInfo.weather_station', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -112,8 +164,8 @@ _DRONE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=90,
-  serialized_end=184,
+  serialized_start=172,
+  serialized_end=353,
 )
 
 
@@ -158,8 +210,8 @@ _GOUPMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=254,
+  serialized_start=355,
+  serialized_end=424,
 )
 
 
@@ -183,31 +235,87 @@ _ACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=256,
-  serialized_end=261,
+  serialized_start=426,
+  serialized_end=431,
 )
 
-_DRONE.fields_by_name['identifier'].message_type = _DRONEIDENTIFIER
-_GOUPMESSAGE.fields_by_name['drone'].message_type = _DRONE
-DESCRIPTOR.message_types_by_name['DroneIdentifier'] = _DRONEIDENTIFIER
-DESCRIPTOR.message_types_by_name['Drone'] = _DRONE
+
+_OK = _descriptor.Descriptor(
+  name='OK',
+  full_name='OK',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=433,
+  serialized_end=437,
+)
+
+
+_EMPTY = _descriptor.Descriptor(
+  name='Empty',
+  full_name='Empty',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=439,
+  serialized_end=446,
+)
+
+_DEVICE.fields_by_name['type'].enum_type = _DEVICE_DEVICETYPE
+_DEVICE_DEVICETYPE.containing_type = _DEVICE
+_STARTINFO.fields_by_name['drones'].message_type = _DEVICE
+_STARTINFO.fields_by_name['battery_charging_system'].message_type = _DEVICE
+_STARTINFO.fields_by_name['weather_station'].message_type = _DEVICE
+_GOUPMESSAGE.fields_by_name['drone'].message_type = _DEVICE
+DESCRIPTOR.message_types_by_name['Device'] = _DEVICE
+DESCRIPTOR.message_types_by_name['StartInfo'] = _STARTINFO
 DESCRIPTOR.message_types_by_name['GoUpMessage'] = _GOUPMESSAGE
 DESCRIPTOR.message_types_by_name['ACK'] = _ACK
+DESCRIPTOR.message_types_by_name['OK'] = _OK
+DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-DroneIdentifier = _reflection.GeneratedProtocolMessageType('DroneIdentifier', (_message.Message,), {
-  'DESCRIPTOR' : _DRONEIDENTIFIER,
+Device = _reflection.GeneratedProtocolMessageType('Device', (_message.Message,), {
+  'DESCRIPTOR' : _DEVICE,
   '__module__' : 'protocol_pb2'
-  # @@protoc_insertion_point(class_scope:DroneIdentifier)
+  # @@protoc_insertion_point(class_scope:Device)
   })
-_sym_db.RegisterMessage(DroneIdentifier)
+_sym_db.RegisterMessage(Device)
 
-Drone = _reflection.GeneratedProtocolMessageType('Drone', (_message.Message,), {
-  'DESCRIPTOR' : _DRONE,
+StartInfo = _reflection.GeneratedProtocolMessageType('StartInfo', (_message.Message,), {
+  'DESCRIPTOR' : _STARTINFO,
   '__module__' : 'protocol_pb2'
-  # @@protoc_insertion_point(class_scope:Drone)
+  # @@protoc_insertion_point(class_scope:StartInfo)
   })
-_sym_db.RegisterMessage(Drone)
+_sym_db.RegisterMessage(StartInfo)
 
 GoUpMessage = _reflection.GeneratedProtocolMessageType('GoUpMessage', (_message.Message,), {
   'DESCRIPTOR' : _GOUPMESSAGE,
@@ -223,6 +331,20 @@ ACK = _reflection.GeneratedProtocolMessageType('ACK', (_message.Message,), {
   })
 _sym_db.RegisterMessage(ACK)
 
+OK = _reflection.GeneratedProtocolMessageType('OK', (_message.Message,), {
+  'DESCRIPTOR' : _OK,
+  '__module__' : 'protocol_pb2'
+  # @@protoc_insertion_point(class_scope:OK)
+  })
+_sym_db.RegisterMessage(OK)
+
+Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
+  'DESCRIPTOR' : _EMPTY,
+  '__module__' : 'protocol_pb2'
+  # @@protoc_insertion_point(class_scope:Empty)
+  })
+_sym_db.RegisterMessage(Empty)
+
 
 
 _CONTROLSERVICEACTIONS = _descriptor.ServiceDescriptor(
@@ -232,15 +354,15 @@ _CONTROLSERVICEACTIONS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=263,
-  serialized_end=349,
+  serialized_start=448,
+  serialized_end=535,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartTakeoff',
     full_name='ControlServiceActions.StartTakeoff',
     index=0,
     containing_service=None,
-    input_type=_DRONE,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -268,15 +390,35 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=352,
-  serialized_end=708,
+  serialized_start=538,
+  serialized_end=906,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='StartControlService',
+    full_name='ControlServiceEvents.StartControlService',
+    index=0,
+    containing_service=None,
+    input_type=_STARTINFO,
+    output_type=_OK,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='StopControlService',
+    full_name='ControlServiceEvents.StopControlService',
+    index=1,
+    containing_service=None,
+    input_type=_EMPTY,
+    output_type=_OK,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
   _descriptor.MethodDescriptor(
     name='Take_Off_Connection_Failed',
     full_name='ControlServiceEvents.Take_Off_Connection_Failed',
-    index=0,
+    index=2,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -284,9 +426,9 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Connected_But_Failed',
     full_name='ControlServiceEvents.Take_Off_Connected_But_Failed',
-    index=1,
+    index=3,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -294,9 +436,9 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Done',
     full_name='ControlServiceEvents.Take_Off_Done',
-    index=2,
+    index=4,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -304,9 +446,9 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Failed',
     full_name='ControlServiceEvents.Go_Up_Failed',
-    index=3,
+    index=5,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -314,9 +456,9 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Set_Settings_Failed',
     full_name='ControlServiceEvents.Go_Up_Set_Settings_Failed',
-    index=4,
+    index=6,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -324,9 +466,9 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Set_Settings_Done',
     full_name='ControlServiceEvents.Go_Up_Set_Settings_Done',
-    index=5,
+    index=7,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -334,9 +476,9 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Done',
     full_name='ControlServiceEvents.Go_Up_Done',
-    index=6,
+    index=8,
     containing_service=None,
-    input_type=_DRONEIDENTIFIER,
+    input_type=_DEVICE,
     output_type=_ACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
