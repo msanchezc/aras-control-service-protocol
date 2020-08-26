@@ -7,7 +7,7 @@ ACCESS_DATA = {"ip": "192.168.50.158"}
 DRONE_ID = "apolo"
 
 drone = Device(
-    type=Device.DeviceType.DRON, 
+    type=Device.DeviceType.DRONE, 
     id=DRONE_ID,
     access_data=str(ACCESS_DATA))
 

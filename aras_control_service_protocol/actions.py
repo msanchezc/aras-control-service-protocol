@@ -7,8 +7,3 @@ class TakeOffAction(Enum):
 
 class GoUpAction(Enum):
     START_GO_UP = "START_GO_UP"
-
-
-class ArasAction(Enum):
-    START_CONTROL_SERVICE = "START_CONTROL_SERVICE"
-    STOP_CONTROL_SERVICE = "STOP_CONTROL_SERVICE"

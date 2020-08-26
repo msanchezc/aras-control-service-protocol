@@ -3,13 +3,11 @@ from aras_control_service_protocol.events import GoUpEvent
 from aras_control_service_protocol.messages import Device
 
 CONTROL_SERVICE_IP = "localhost:50052"
-
+DRONE_ID = "apolo"
 
 drone = Device(
-    type=Device.DeviceType.DRON,
-    id=DRONE_ID,
-    access_data=str(ACCESS_DATA))
-
+    type=Device.DeviceType.DRONE,
+    id=DRONE_ID)
 
 go_up_emitter = GoUpEventEmitter(CONTROL_SERVICE_IP)
 

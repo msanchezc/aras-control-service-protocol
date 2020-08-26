@@ -1,7 +1,9 @@
 import grpc
-from aras_control_service_protocol.events import TakeOffEvent, GoUpEvent
+from aras_control_service_protocol.events import (
+    TakeOffEvent, GoUpEvent, ArasEvent
+)
 from aras_control_service_protocol.actions import (
-    TakeOffAction, GoUpAction, ArasAction
+    TakeOffAction, GoUpAction
 )
 from aras_control_service_protocol.messages import (
     Device, GoUpMessage, Empty, StartInfo
@@ -104,21 +106,21 @@ class GoUpActionEmitter(_ControlServiceEmiter):
         return response
 
 
-class ArasActionEmitter(_ControlServiceEmiter):
-    def emit(self, aras_action, start_info):
+class ArasEventEmitter(_ControlServiceEmiter):
+    def emit(self, aras_event, start_info):
         """
         Args:
-            aras_action: An ArasAction instance
+            aras_event: An ArasEvent instance
             start_info: An StartInfo instance
         """
         assert "Channel must be READY", self.channel is not None
-        assert isinstance(aras_action, ArasAction)
+        assert isinstance(aras_event, ArasEvent)
         assert isinstance(start_info, StartInfo)
 
-        stub = ControlServiceActionsStub(self.channel)
+        stub = ControlServiceEventsStub(self.channel)
 
-        if aras_action == ArasAction.START_CONTROL_SERVICE:
+        if aras_event == ArasEvent.START_CONTROL_SERVICE_REQUESTED:
             response = stub.StartControlService(start_info)
-        if aras_action == ArasAction.STOP_CONTROL_SERVICE:
+        if aras_event == ArasEvent.STOP_CONTROL_SERVICE_REQUESTED:
             response = stub.StopControlService(Empty())
         return response
