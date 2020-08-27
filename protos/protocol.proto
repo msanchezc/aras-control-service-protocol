@@ -9,6 +9,8 @@ service ControlServiceEvents{
     rpc StartControlService(StartInfo) returns (OK);
     rpc StopControlService(Empty) returns (OK);
 
+    rpc Wake_Up_Done(Device) returns (ACK);
+
     rpc Take_Off_Connection_Failed(Device) returns (ACK);
     rpc Take_Off_Connected_But_Failed(Device) returns (ACK);
     rpc Take_Off_Done(Device) returns (ACK);
