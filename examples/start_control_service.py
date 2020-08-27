@@ -1,3 +1,4 @@
+import json
 from aras_control_service_protocol.events import ArasEvent
 from aras_control_service_protocol.emitters import ArasEventEmitter
 from aras_control_service_protocol.messages import StartInfo, Device
@@ -5,7 +6,11 @@ from aras_control_service_protocol.messages import StartInfo, Device
 
 CONTROL_SERVICE_IP = "localhost:50052"
 
-DRONE_ACCESS_DATA = {"aircraft_ip": "192.168.50.158"}
+DRONE_ACCESS_DATA = {
+    "aircraft_ip": "192.168.0.109",
+    "engine_ip": "localhost:50054",
+    "control_service_ip": CONTROL_SERVICE_IP
+}
 DBEST_ACCESS_DATA = {"battery_charging_system_ip": "TODO"}
 
 OWNER_ID = "Lab"
@@ -17,12 +22,12 @@ ARAS_UPDATE_INFO_API_URL = "localhost:8000/monitor/api/update_info_drone"
 drone = Device(
     type=Device.DeviceType.DRONE,
     id=DRONE_ID,
-    access_data=str(DRONE_ACCESS_DATA))
+    access_data=json.dumps(DRONE_ACCESS_DATA))
 
 battery_charging_system = Device(
     type=Device.DeviceType.BATTERY_CHARGING_SYSTEM,
     id=DRONE_ID,
-    access_data=str(DBEST_ACCESS_DATA))
+    access_data=json.dumps(DBEST_ACCESS_DATA))
 
 start_info = StartInfo(
     aras_update_info_api_url=ARAS_UPDATE_INFO_API_URL,
