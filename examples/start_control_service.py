@@ -4,18 +4,20 @@ from aras_control_service_protocol.messages import StartInfo, Device
 
 
 CONTROL_SERVICE_IP = "localhost:50052"
-DRONE_ACCESS_DATA = {"ip": "192.168.50.158"}
-DBEST_ACCESS_DATA = {"ip": "TODO"}
-OWNER_ID = "lab"
-BASE_ID = "base_lab"
-DRONE_ID = "apolo"
-DBEST_ID = "TODO"
+
+DRONE_ACCESS_DATA = {"aircraft_ip": "192.168.50.158"}
+DBEST_ACCESS_DATA = {"battery_charging_system_ip": "TODO"}
+
+OWNER_ID = "Lab"
+BASE_ID = "Base #1"
+DRONE_ID = "APOLO"
+DBEST_ID = "BEAST"
 ARAS_UPDATE_INFO_API_URL = "localhost:8000/monitor/api/update_info_drone"
 
 drone = Device(
     type=Device.DeviceType.DRONE,
     id=DRONE_ID,
-    access_data=str(DBEST_ACCESS_DATA))
+    access_data=str(DRONE_ACCESS_DATA))
 
 battery_charging_system = Device(
     type=Device.DeviceType.BATTERY_CHARGING_SYSTEM,
