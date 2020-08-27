@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprotocol.proto\"\x96\x01\n\x06\x44\x65vice\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.Device.DeviceType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x03 \x01(\t\"I\n\nDeviceType\x12\t\n\x05\x44RONE\x10\x00\x12\x1b\n\x17\x42\x41TTERY_CHARGING_SYSTEM\x10\x01\x12\x13\n\x0fWEATHER_STATION\x10\x02\"\xb5\x01\n\tStartInfo\x12 \n\x18\x61ras_update_info_api_url\x18\x01 \x01(\t\x12\x10\n\x08owner_id\x18\x02 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x03 \x01(\t\x12\x17\n\x06\x64rones\x18\x04 \x03(\x0b\x32\x07.Device\x12(\n\x17\x62\x61ttery_charging_system\x18\x05 \x01(\x0b\x32\x07.Device\x12 \n\x0fweather_station\x18\x06 \x01(\x0b\x32\x07.Device\"E\n\x0bGoUpMessage\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K\"\x04\n\x02OK\"\x07\n\x05\x45mpty2W\n\x15\x43ontrolServiceActions\x12\x1d\n\x0cStartTakeoff\x12\x07.Device\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\xf0\x02\n\x14\x43ontrolServiceEvents\x12&\n\x13StartControlService\x12\n.StartInfo\x1a\x03.OK\x12!\n\x12StopControlService\x12\x06.Empty\x1a\x03.OK\x12+\n\x1aTake_Off_Connection_Failed\x12\x07.Device\x1a\x04.ACK\x12.\n\x1dTake_Off_Connected_But_Failed\x12\x07.Device\x1a\x04.ACK\x12\x1e\n\rTake_Off_Done\x12\x07.Device\x1a\x04.ACK\x12\x1d\n\x0cGo_Up_Failed\x12\x07.Device\x1a\x04.ACK\x12*\n\x19Go_Up_Set_Settings_Failed\x12\x07.Device\x1a\x04.ACK\x12(\n\x17Go_Up_Set_Settings_Done\x12\x07.Device\x1a\x04.ACK\x12\x1b\n\nGo_Up_Done\x12\x07.Device\x1a\x04.ACKb\x06proto3'
+  serialized_pb=b'\n\x0eprotocol.proto\"\x96\x01\n\x06\x44\x65vice\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.Device.DeviceType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x03 \x01(\t\"I\n\nDeviceType\x12\t\n\x05\x44RONE\x10\x00\x12\x1b\n\x17\x42\x41TTERY_CHARGING_SYSTEM\x10\x01\x12\x13\n\x0fWEATHER_STATION\x10\x02\"\xb5\x01\n\tStartInfo\x12 \n\x18\x61ras_update_info_api_url\x18\x01 \x01(\t\x12\x10\n\x08owner_id\x18\x02 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x03 \x01(\t\x12\x17\n\x06\x64rones\x18\x04 \x03(\x0b\x32\x07.Device\x12(\n\x17\x62\x61ttery_charging_system\x18\x05 \x01(\x0b\x32\x07.Device\x12 \n\x0fweather_station\x18\x06 \x01(\x0b\x32\x07.Device\"E\n\x0bGoUpMessage\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K\"\x04\n\x02OK\"\x07\n\x05\x45mpty2W\n\x15\x43ontrolServiceActions\x12\x1d\n\x0cStartTakeoff\x12\x07.Device\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\x8f\x03\n\x14\x43ontrolServiceEvents\x12&\n\x13StartControlService\x12\n.StartInfo\x1a\x03.OK\x12!\n\x12StopControlService\x12\x06.Empty\x1a\x03.OK\x12\x1d\n\x0cWake_Up_Done\x12\x07.Device\x1a\x04.ACK\x12+\n\x1aTake_Off_Connection_Failed\x12\x07.Device\x1a\x04.ACK\x12.\n\x1dTake_Off_Connected_But_Failed\x12\x07.Device\x1a\x04.ACK\x12\x1e\n\rTake_Off_Done\x12\x07.Device\x1a\x04.ACK\x12\x1d\n\x0cGo_Up_Failed\x12\x07.Device\x1a\x04.ACK\x12*\n\x19Go_Up_Set_Settings_Failed\x12\x07.Device\x1a\x04.ACK\x12(\n\x17Go_Up_Set_Settings_Done\x12\x07.Device\x1a\x04.ACK\x12\x1b\n\nGo_Up_Done\x12\x07.Device\x1a\x04.ACKb\x06proto3'
 )
 
 
@@ -391,7 +391,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=538,
-  serialized_end=906,
+  serialized_end=937,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartControlService',
@@ -414,9 +414,19 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='Wake_Up_Done',
+    full_name='ControlServiceEvents.Wake_Up_Done',
+    index=2,
+    containing_service=None,
+    input_type=_DEVICE,
+    output_type=_ACK,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Take_Off_Connection_Failed',
     full_name='ControlServiceEvents.Take_Off_Connection_Failed',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
@@ -426,7 +436,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Connected_But_Failed',
     full_name='ControlServiceEvents.Take_Off_Connected_But_Failed',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
@@ -436,7 +446,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Done',
     full_name='ControlServiceEvents.Take_Off_Done',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
@@ -446,7 +456,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Failed',
     full_name='ControlServiceEvents.Go_Up_Failed',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
@@ -456,7 +466,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Set_Settings_Failed',
     full_name='ControlServiceEvents.Go_Up_Set_Settings_Failed',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
@@ -466,7 +476,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Set_Settings_Done',
     full_name='ControlServiceEvents.Go_Up_Set_Settings_Done',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
@@ -476,7 +486,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Done',
     full_name='ControlServiceEvents.Go_Up_Done',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_ACK,
