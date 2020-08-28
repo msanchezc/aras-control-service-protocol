@@ -24,6 +24,11 @@ class ControlServiceActionsStub(object):
                 request_serializer=protocol__pb2.GoUpMessage.SerializeToString,
                 response_deserializer=protocol__pb2.ACK.FromString,
                 )
+        self.StartMission = channel.unary_unary(
+                '/ControlServiceActions/StartMission',
+                request_serializer=protocol__pb2.MissionData.SerializeToString,
+                response_deserializer=protocol__pb2.ACK.FromString,
+                )
 
 
 class ControlServiceActionsServicer(object):
@@ -41,6 +46,12 @@ class ControlServiceActionsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def StartMission(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ControlServiceActionsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -52,6 +63,11 @@ def add_ControlServiceActionsServicer_to_server(servicer, server):
             'StartGoUp': grpc.unary_unary_rpc_method_handler(
                     servicer.StartGoUp,
                     request_deserializer=protocol__pb2.GoUpMessage.FromString,
+                    response_serializer=protocol__pb2.ACK.SerializeToString,
+            ),
+            'StartMission': grpc.unary_unary_rpc_method_handler(
+                    servicer.StartMission,
+                    request_deserializer=protocol__pb2.MissionData.FromString,
                     response_serializer=protocol__pb2.ACK.SerializeToString,
             ),
     }
@@ -94,6 +110,23 @@ class ControlServiceActions(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ControlServiceActions/StartGoUp',
             protocol__pb2.GoUpMessage.SerializeToString,
+            protocol__pb2.ACK.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StartMission(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceActions/StartMission',
+            protocol__pb2.MissionData.SerializeToString,
             protocol__pb2.ACK.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

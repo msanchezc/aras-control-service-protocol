@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprotocol.proto\"F\n\x0f\x44roneIdentifier\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x02 \x01(\t\x12\x10\n\x08\x64rone_id\x18\x03 \x01(\t\"^\n\x05\x44rone\x12$\n\nidentifier\x18\x01 \x01(\x0b\x32\x10.DroneIdentifier\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x02 \x01(\t\x12\x1a\n\x12\x63ontrol_service_ip\x18\x03 \x01(\t\"D\n\x0bGoUpMessage\x12\x15\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x06.Drone\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"\x05\n\x03\x41\x43K2V\n\x15\x43ontrolServiceActions\x12\x1c\n\x0cStartTakeoff\x12\x06.Drone\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK2\xe4\x02\n\x14\x43ontrolServiceEvents\x12\x34\n\x1aTake_Off_Connection_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x37\n\x1dTake_Off_Connected_But_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\'\n\rTake_Off_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12&\n\x0cGo_Up_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x33\n\x19Go_Up_Set_Settings_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x31\n\x17Go_Up_Set_Settings_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12$\n\nGo_Up_Done\x12\x10.DroneIdentifier\x1a\x04.ACKb\x06proto3'
+  serialized_pb=b'\n\x0eprotocol.proto\"F\n\x0f\x44roneIdentifier\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x02 \x01(\t\x12\x10\n\x08\x64rone_id\x18\x03 \x01(\t\"^\n\x05\x44rone\x12$\n\nidentifier\x18\x01 \x01(\x0b\x32\x10.DroneIdentifier\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x02 \x01(\t\x12\x1a\n\x12\x63ontrol_service_ip\x18\x03 \x01(\t\"D\n\x0bGoUpMessage\x12\x15\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x06.Drone\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"w\n\x08Waypoint\x12\x10\n\x08latitude\x18\x01 \x01(\x02\x12\x11\n\tlongitude\x18\x02 \x01(\x02\x12\x10\n\x08\x61ltitude\x18\x03 \x01(\x02\x12\x14\n\x0cgimbal_pitch\x18\x04 \x01(\x02\x12\x0f\n\x07heading\x18\x05 \x01(\x02\x12\r\n\x05speed\x18\x06 \x01(\x02\"B\n\x0bMissionData\x12\x15\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x06.Drone\x12\x1c\n\twaypoints\x18\x02 \x03(\x0b\x32\t.Waypoint\"\x05\n\x03\x41\x43K2z\n\x15\x43ontrolServiceActions\x12\x1c\n\x0cStartTakeoff\x12\x06.Drone\x1a\x04.ACK\x12\x1f\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\x04.ACK\x12\"\n\x0cStartMission\x12\x0c.MissionData\x1a\x04.ACK2\xe4\x02\n\x14\x43ontrolServiceEvents\x12\x34\n\x1aTake_Off_Connection_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x37\n\x1dTake_Off_Connected_But_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\'\n\rTake_Off_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12&\n\x0cGo_Up_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x33\n\x19Go_Up_Set_Settings_Failed\x12\x10.DroneIdentifier\x1a\x04.ACK\x12\x31\n\x17Go_Up_Set_Settings_Done\x12\x10.DroneIdentifier\x1a\x04.ACK\x12$\n\nGo_Up_Done\x12\x10.DroneIdentifier\x1a\x04.ACKb\x06proto3'
 )
 
 
@@ -163,6 +163,112 @@ _GOUPMESSAGE = _descriptor.Descriptor(
 )
 
 
+_WAYPOINT = _descriptor.Descriptor(
+  name='Waypoint',
+  full_name='Waypoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='latitude', full_name='Waypoint.latitude', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='longitude', full_name='Waypoint.longitude', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='altitude', full_name='Waypoint.altitude', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gimbal_pitch', full_name='Waypoint.gimbal_pitch', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='heading', full_name='Waypoint.heading', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='speed', full_name='Waypoint.speed', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=256,
+  serialized_end=375,
+)
+
+
+_MISSIONDATA = _descriptor.Descriptor(
+  name='MissionData',
+  full_name='MissionData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='drone', full_name='MissionData.drone', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='waypoints', full_name='MissionData.waypoints', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=377,
+  serialized_end=443,
+)
+
+
 _ACK = _descriptor.Descriptor(
   name='ACK',
   full_name='ACK',
@@ -183,15 +289,19 @@ _ACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=256,
-  serialized_end=261,
+  serialized_start=445,
+  serialized_end=450,
 )
 
 _DRONE.fields_by_name['identifier'].message_type = _DRONEIDENTIFIER
 _GOUPMESSAGE.fields_by_name['drone'].message_type = _DRONE
+_MISSIONDATA.fields_by_name['drone'].message_type = _DRONE
+_MISSIONDATA.fields_by_name['waypoints'].message_type = _WAYPOINT
 DESCRIPTOR.message_types_by_name['DroneIdentifier'] = _DRONEIDENTIFIER
 DESCRIPTOR.message_types_by_name['Drone'] = _DRONE
 DESCRIPTOR.message_types_by_name['GoUpMessage'] = _GOUPMESSAGE
+DESCRIPTOR.message_types_by_name['Waypoint'] = _WAYPOINT
+DESCRIPTOR.message_types_by_name['MissionData'] = _MISSIONDATA
 DESCRIPTOR.message_types_by_name['ACK'] = _ACK
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -216,6 +326,20 @@ GoUpMessage = _reflection.GeneratedProtocolMessageType('GoUpMessage', (_message.
   })
 _sym_db.RegisterMessage(GoUpMessage)
 
+Waypoint = _reflection.GeneratedProtocolMessageType('Waypoint', (_message.Message,), {
+  'DESCRIPTOR' : _WAYPOINT,
+  '__module__' : 'protocol_pb2'
+  # @@protoc_insertion_point(class_scope:Waypoint)
+  })
+_sym_db.RegisterMessage(Waypoint)
+
+MissionData = _reflection.GeneratedProtocolMessageType('MissionData', (_message.Message,), {
+  'DESCRIPTOR' : _MISSIONDATA,
+  '__module__' : 'protocol_pb2'
+  # @@protoc_insertion_point(class_scope:MissionData)
+  })
+_sym_db.RegisterMessage(MissionData)
+
 ACK = _reflection.GeneratedProtocolMessageType('ACK', (_message.Message,), {
   'DESCRIPTOR' : _ACK,
   '__module__' : 'protocol_pb2'
@@ -232,8 +356,8 @@ _CONTROLSERVICEACTIONS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=263,
-  serialized_end=349,
+  serialized_start=452,
+  serialized_end=574,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartTakeoff',
@@ -255,6 +379,16 @@ _CONTROLSERVICEACTIONS = _descriptor.ServiceDescriptor(
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
+  _descriptor.MethodDescriptor(
+    name='StartMission',
+    full_name='ControlServiceActions.StartMission',
+    index=2,
+    containing_service=None,
+    input_type=_MISSIONDATA,
+    output_type=_ACK,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
 ])
 _sym_db.RegisterServiceDescriptor(_CONTROLSERVICEACTIONS)
 
@@ -268,8 +402,8 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=352,
-  serialized_end=708,
+  serialized_start=577,
+  serialized_end=933,
   methods=[
   _descriptor.MethodDescriptor(
     name='Take_Off_Connection_Failed',

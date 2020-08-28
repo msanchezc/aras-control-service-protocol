@@ -1,7 +1,11 @@
 import grpc
 from aras_control_service_protocol.events import TakeOffEvent, GoUpEvent
-from aras_control_service_protocol.actions import TakeOffAction, GoUpAction
-from aras_control_service_protocol.messages import Drone, GoUpMessage, DroneIdentifier
+from aras_control_service_protocol.actions import (
+    TakeOffAction, GoUpAction, MissionAction
+)
+from aras_control_service_protocol.messages import (
+    Drone, GoUpMessage, DroneIdentifier, MissionData
+)
 from aras_control_service_protocol._stubs import (
     ControlServiceEventsStub,
     ControlServiceActionsStub
@@ -13,7 +17,7 @@ class _ControlServiceEmiter:
         self.control_service_ip = control_service_ip
         self.channel = grpc.insecure_channel(self.control_service_ip)
 
-# ------------------------ Events emitters -------------------------------------#
+# ------------------------ Events emitters ---------------------------------#
 
 
 class TakeOffEventEmitter(_ControlServiceEmiter):
@@ -61,7 +65,7 @@ class GoUpEventEmitter(_ControlServiceEmiter):
             response = stub.Go_Up_Done(drone_identifier)
         return response
 
-# ------------------------ Actions emitters -------------------------------------#
+# ------------------------ Actions emitters ---------------------------------#
 
 
 class TakeOffActionEmitter(_ControlServiceEmiter):
@@ -97,4 +101,22 @@ class GoUpActionEmitter(_ControlServiceEmiter):
 
         if go_up_action == GoUpAction.START_GO_UP:
             response = stub.StartGoUp(go_up_message)
+        return response
+
+
+class MissionActionEmitter(_ControlServiceEmiter):
+    def emit(self, mission_action, mission_data):
+        """
+        Args:
+            mission_action: An MissionAction instance
+            mission_data: An MissionData instance
+        """
+        assert "Channel must be READY", self.channel is not None
+        assert isinstance(mission_data, MissionData)
+        assert isinstance(mission_action, MissionAction)
+
+        stub = ControlServiceActionsStub(self.channel)
+
+        if mission_data == MissionAction.START_MISSION:
+            response = stub.StartMission(mission_data)
         return response
