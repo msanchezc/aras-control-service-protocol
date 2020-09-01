@@ -1,36 +1,50 @@
 syntax = "proto3";
 
 service ControlServiceActions{
-    rpc StartTakeoff(Drone) returns (ACK);
+    rpc StartTakeoff(Device) returns (ACK);
     rpc StartGoUp(GoUpMessage) returns (ACK);
     rpc StartMission(MissionData) returns (ACK);
 }
 
 service ControlServiceEvents{
-    rpc Take_Off_Connection_Failed(DroneIdentifier) returns (ACK);
-    rpc Take_Off_Connected_But_Failed(DroneIdentifier) returns (ACK);
-    rpc Take_Off_Done(DroneIdentifier) returns (ACK);
+    rpc StartControlService(StartInfo) returns (OK);
+    rpc StopControlService(Empty) returns (OK);
 
-    rpc Go_Up_Failed(DroneIdentifier) returns (ACK);
-    rpc Go_Up_Set_Settings_Failed(DroneIdentifier) returns (ACK);
-    rpc Go_Up_Set_Settings_Done(DroneIdentifier) returns (ACK);
-    rpc Go_Up_Done(DroneIdentifier) returns (ACK);
+    rpc Wake_Up_Done(Device) returns (ACK);
+
+    rpc Take_Off_Connection_Failed(Device) returns (ACK);
+    rpc Take_Off_Connected_But_Failed(Device) returns (ACK);
+    rpc Take_Off_Done(Device) returns (ACK);
+
+    rpc Go_Up_Failed(Device) returns (ACK);
+    rpc Go_Up_Set_Settings_Failed(Device) returns (ACK);
+    rpc Go_Up_Set_Settings_Done(Device) returns (ACK);
+    rpc Go_Up_Done(Device) returns (ACK);
 }
 
-message DroneIdentifier {
-    string owner_id = 1;
-    string base_id = 2;
-    string drone_id = 3;
+message Device {
+    enum DeviceType {
+        DRONE = 0;
+        BATTERY_CHARGING_SYSTEM = 1;
+        WEATHER_STATION = 2;
+    }
+
+    DeviceType type = 1;
+    string id = 2;
+    string access_data = 3;  // An json information about ips, ports, tokens, etc
 }
 
-message Drone {
-    DroneIdentifier identifier = 1;
-    string access_data = 2;  // An json information about ips, ports, tokens, etc
-    string control_service_ip = 3;
+message StartInfo {
+    string aras_update_info_api_url = 1;
+    string owner_id = 2;
+    string base_id = 3;
+    repeated Device drones = 4;
+    Device battery_charging_system = 5;
+    Device weather_station = 6;
 }
 
 message GoUpMessage {
-    Drone drone = 1;
+    Device drone = 1;
     int32 altitude = 2; // meters
     int32 roll = 3; // meters
 }
@@ -50,3 +64,7 @@ message MissionData{
 }
 
 message ACK {}
+
+message OK {}
+
+message Empty {}
