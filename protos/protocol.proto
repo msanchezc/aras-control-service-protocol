@@ -3,6 +3,7 @@ syntax = "proto3";
 service ControlServiceActions{
     rpc StartTakeoff(Device) returns (ACK);
     rpc StartGoUp(GoUpMessage) returns (ACK);
+    rpc StartMission(MissionData) returns (ACK);
 }
 
 service ControlServiceEvents{
@@ -46,6 +47,20 @@ message GoUpMessage {
     Device drone = 1;
     int32 altitude = 2; // meters
     int32 roll = 3; // meters
+}
+
+message Waypoint {
+    float latitude = 1;
+    float longitude = 2;
+    float altitude = 3;
+    float gimbal_pitch = 4; //The angle (-90, 45)
+    float heading = 5;
+    float speed = 6; //The drone's speed when traveling between waypoints
+}
+
+message MissionData{
+    Drone drone = 1;
+    repeated Waypoint waypoints = 2 ;
 }
 
 message ACK {}

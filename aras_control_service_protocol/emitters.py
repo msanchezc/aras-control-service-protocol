@@ -1,4 +1,5 @@
 import grpc
+
 from aras_control_service_protocol.events import (
     TakeOffEvent, GoUpEvent, ArasEvent, WakeUpEvent
 )
@@ -19,8 +20,8 @@ class _ControlServiceEmiter:
         self.control_service_ip = control_service_ip
         self.channel = grpc.insecure_channel(self.control_service_ip)
 
-# ------------------------ Events emitters -----------------------------#
 
+# ------------------------ Events emitters -----------------------------#
 
 class WakeUpEventEmitter(_ControlServiceEmiter):
     def emit(self, wake_up_event, drone):
@@ -141,4 +142,21 @@ class ArasEventEmitter(_ControlServiceEmiter):
             response = stub.StartControlService(start_info)
         if aras_event == ArasEvent.STOP_CONTROL_SERVICE_REQUESTED:
             response = stub.StopControlService(Empty())
+
+
+class MissionActionEmitter(_ControlServiceEmiter):
+    def emit(self, mission_action, mission_data):
+        """
+        Args:
+            mission_action: An MissionAction instance
+            mission_data: An MissionData instance
+        """
+        assert "Channel must be READY", self.channel is not None
+        assert isinstance(mission_data, MissionData)
+        assert isinstance(mission_action, MissionAction)
+
+        stub = ControlServiceActionsStub(self.channel)
+
+        if mission_data == MissionAction.START_MISSION:
+            response = stub.StartMission(mission_data)
         return response
