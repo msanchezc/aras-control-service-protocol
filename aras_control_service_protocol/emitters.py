@@ -4,10 +4,10 @@ from aras_control_service_protocol.events import (
     TakeOffEvent, GoUpEvent, ArasEvent, WakeUpEvent
 )
 from aras_control_service_protocol.actions import (
-    TakeOffAction, GoUpAction
+    TakeOffAction, GoUpAction, MissionAction
 )
 from aras_control_service_protocol.messages import (
-    Device, GoUpMessage, Empty, StartInfo
+    Device, GoUpMessage, Empty, StartInfo, MissionData
 )
 from aras_control_service_protocol._stubs import (
     ControlServiceEventsStub,
@@ -142,6 +142,7 @@ class ArasEventEmitter(_ControlServiceEmiter):
             response = stub.StartControlService(start_info)
         if aras_event == ArasEvent.STOP_CONTROL_SERVICE_REQUESTED:
             response = stub.StopControlService(Empty())
+        return response
 
 
 class MissionActionEmitter(_ControlServiceEmiter):

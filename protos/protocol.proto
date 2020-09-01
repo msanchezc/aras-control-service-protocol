@@ -59,7 +59,7 @@ message Waypoint {
 }
 
 message MissionData{
-    Drone drone = 1;
+    Device drone = 1;
     repeated Waypoint waypoints = 2 ;
 }
 
