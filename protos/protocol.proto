@@ -6,7 +6,7 @@ service ControlServiceActions{
     rpc StartMission(MissionData) returns (Response);
 }
 
-service ControlServiceEvents{
+service ControlService{
     rpc StartControlService(StartInfo) returns (Response);
     rpc StopControlService(Empty) returns (Response);
     rpc GetControlServiceStatus(Empty) returns (Bool);
@@ -25,6 +25,7 @@ service ControlServiceEvents{
 
 message Bool {
     bool value = 1;
+    string info = 2;
 }
 
 message Device {

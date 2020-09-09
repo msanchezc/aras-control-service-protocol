@@ -132,7 +132,7 @@ class ControlServiceActions(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
-class ControlServiceEventsStub(object):
+class ControlServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -142,63 +142,63 @@ class ControlServiceEventsStub(object):
             channel: A grpc.Channel.
         """
         self.StartControlService = channel.unary_unary(
-                '/ControlServiceEvents/StartControlService',
+                '/ControlService/StartControlService',
                 request_serializer=protocol__pb2.StartInfo.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.StopControlService = channel.unary_unary(
-                '/ControlServiceEvents/StopControlService',
+                '/ControlService/StopControlService',
                 request_serializer=protocol__pb2.Empty.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.GetControlServiceStatus = channel.unary_unary(
-                '/ControlServiceEvents/GetControlServiceStatus',
+                '/ControlService/GetControlServiceStatus',
                 request_serializer=protocol__pb2.Empty.SerializeToString,
                 response_deserializer=protocol__pb2.Bool.FromString,
                 )
         self.Wake_Up_Done = channel.unary_unary(
-                '/ControlServiceEvents/Wake_Up_Done',
+                '/ControlService/Wake_Up_Done',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Take_Off_Connection_Failed = channel.unary_unary(
-                '/ControlServiceEvents/Take_Off_Connection_Failed',
+                '/ControlService/Take_Off_Connection_Failed',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Take_Off_Connected_But_Failed = channel.unary_unary(
-                '/ControlServiceEvents/Take_Off_Connected_But_Failed',
+                '/ControlService/Take_Off_Connected_But_Failed',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Take_Off_Done = channel.unary_unary(
-                '/ControlServiceEvents/Take_Off_Done',
+                '/ControlService/Take_Off_Done',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Go_Up_Failed = channel.unary_unary(
-                '/ControlServiceEvents/Go_Up_Failed',
+                '/ControlService/Go_Up_Failed',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Go_Up_Set_Settings_Failed = channel.unary_unary(
-                '/ControlServiceEvents/Go_Up_Set_Settings_Failed',
+                '/ControlService/Go_Up_Set_Settings_Failed',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Go_Up_Set_Settings_Done = channel.unary_unary(
-                '/ControlServiceEvents/Go_Up_Set_Settings_Done',
+                '/ControlService/Go_Up_Set_Settings_Done',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
         self.Go_Up_Done = channel.unary_unary(
-                '/ControlServiceEvents/Go_Up_Done',
+                '/ControlService/Go_Up_Done',
                 request_serializer=protocol__pb2.Device.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
 
 
-class ControlServiceEventsServicer(object):
+class ControlServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def StartControlService(self, request, context):
@@ -268,7 +268,7 @@ class ControlServiceEventsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ControlServiceEventsServicer_to_server(servicer, server):
+def add_ControlServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StartControlService': grpc.unary_unary_rpc_method_handler(
                     servicer.StartControlService,
@@ -327,12 +327,12 @@ def add_ControlServiceEventsServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ControlServiceEvents', rpc_method_handlers)
+            'ControlService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ControlServiceEvents(object):
+class ControlService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -346,7 +346,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/StartControlService',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/StartControlService',
             protocol__pb2.StartInfo.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -363,7 +363,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/StopControlService',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/StopControlService',
             protocol__pb2.Empty.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -380,7 +380,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/GetControlServiceStatus',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/GetControlServiceStatus',
             protocol__pb2.Empty.SerializeToString,
             protocol__pb2.Bool.FromString,
             options, channel_credentials,
@@ -397,7 +397,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Wake_Up_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Wake_Up_Done',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -414,7 +414,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Take_Off_Connection_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Take_Off_Connection_Failed',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -431,7 +431,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Take_Off_Connected_But_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Take_Off_Connected_But_Failed',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -448,7 +448,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Take_Off_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Take_Off_Done',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -465,7 +465,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Go_Up_Failed',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -482,7 +482,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Set_Settings_Failed',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Go_Up_Set_Settings_Failed',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -499,7 +499,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Set_Settings_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Go_Up_Set_Settings_Done',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
@@ -516,7 +516,7 @@ class ControlServiceEvents(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/Go_Up_Done',
+        return grpc.experimental.unary_unary(request, target, '/ControlService/Go_Up_Done',
             protocol__pb2.Device.SerializeToString,
             protocol__pb2.Response.FromString,
             options, channel_credentials,
