@@ -10,7 +10,7 @@ from aras_control_service_protocol.messages import (
     Device, GoUpMessage, Empty, StartInfo, MissionData
 )
 from aras_control_service_protocol._stubs import (
-    ControlServiceEventsStub,
+    ControlServiceStub,
     ControlServiceActionsStub
 )
 
@@ -34,7 +34,7 @@ class WakeUpEventEmitter(_ControlServiceEmiter):
         assert isinstance(drone, Device)
         assert isinstance(wake_up_event, WakeUpEvent)
 
-        stub = ControlServiceEventsStub(self.channel)
+        stub = ControlServiceStub(self.channel)
 
         if wake_up_event == WakeUpEvent.WAKE_UP_DONE:
             response = stub.Wake_Up_Done(drone)
@@ -52,7 +52,7 @@ class TakeOffEventEmitter(_ControlServiceEmiter):
         assert isinstance(drone, Device)
         assert isinstance(take_off_event, TakeOffEvent)
 
-        stub = ControlServiceEventsStub(self.channel)
+        stub = ControlServiceStub(self.channel)
 
         if take_off_event == TakeOffEvent.TAKE_OFF_CONNECTED_BUT_FAILED:
             response = stub.Take_Off_Connected_But_Failed(drone)
@@ -74,7 +74,7 @@ class GoUpEventEmitter(_ControlServiceEmiter):
         assert isinstance(drone, Device)
         assert isinstance(go_up_event, GoUpEvent)
 
-        stub = ControlServiceEventsStub(self.channel)
+        stub = ControlServiceStub(self.channel)
 
         if go_up_event == GoUpEvent.GO_UP_FAILED:
             response = stub.Go_Up_Failed(drone)
@@ -136,7 +136,7 @@ class ArasEventEmitter(_ControlServiceEmiter):
         assert isinstance(aras_event, ArasEvent)
         assert isinstance(start_info, StartInfo)
 
-        stub = ControlServiceEventsStub(self.channel)
+        stub = ControlServiceStub(self.channel)
 
         if aras_event == ArasEvent.START_CONTROL_SERVICE_REQUESTED:
             response = stub.StartControlService(start_info)
