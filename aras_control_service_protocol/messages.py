@@ -1,1 +1,1 @@
-from aras_control_service_protocol.generated.protocol_pb2 import ACK, Empty, Device, GoUpMessage, StartInfo, MissionData, Waypoint  # noqa: F401 E501
+from aras_control_service_protocol.generated.protocol_pb2 import Response, Empty, Device, GoUpMessage, StartInfo, MissionData, Waypoint  # noqa: F401 E501

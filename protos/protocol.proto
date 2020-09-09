@@ -1,25 +1,25 @@
 syntax = "proto3";
 
 service ControlServiceActions{
-    rpc StartTakeoff(Device) returns (ACK);
-    rpc StartGoUp(GoUpMessage) returns (ACK);
-    rpc StartMission(MissionData) returns (ACK);
+    rpc StartTakeoff(Device) returns (Response);
+    rpc StartGoUp(GoUpMessage) returns (Response);
+    rpc StartMission(MissionData) returns (Response);
 }
 
 service ControlServiceEvents{
-    rpc StartControlService(StartInfo) returns (OK);
-    rpc StopControlService(Empty) returns (OK);
+    rpc StartControlService(StartInfo) returns (Response);
+    rpc StopControlService(Empty) returns (Response);
 
-    rpc Wake_Up_Done(Device) returns (ACK);
+    rpc Wake_Up_Done(Device) returns (Response);
 
-    rpc Take_Off_Connection_Failed(Device) returns (ACK);
-    rpc Take_Off_Connected_But_Failed(Device) returns (ACK);
-    rpc Take_Off_Done(Device) returns (ACK);
+    rpc Take_Off_Connection_Failed(Device) returns (Response);
+    rpc Take_Off_Connected_But_Failed(Device) returns (Response);
+    rpc Take_Off_Done(Device) returns (Response);
 
-    rpc Go_Up_Failed(Device) returns (ACK);
-    rpc Go_Up_Set_Settings_Failed(Device) returns (ACK);
-    rpc Go_Up_Set_Settings_Done(Device) returns (ACK);
-    rpc Go_Up_Done(Device) returns (ACK);
+    rpc Go_Up_Failed(Device) returns (Response);
+    rpc Go_Up_Set_Settings_Failed(Device) returns (Response);
+    rpc Go_Up_Set_Settings_Done(Device) returns (Response);
+    rpc Go_Up_Done(Device) returns (Response);
 }
 
 message Device {
@@ -63,8 +63,15 @@ message MissionData{
     repeated Waypoint waypoints = 2 ;
 }
 
-message ACK {}
+message Response {
+    enum ResponseType {
+        ACK = 0;
+        DONE = 1;
+        FAILED = 2;
+    }
+    ResponseType response_type = 1;
+    string info = 2;
 
-message OK {}
+}
 
 message Empty {}
