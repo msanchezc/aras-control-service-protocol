@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eprotocol.proto\"\x96\x01\n\x06\x44\x65vice\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.Device.DeviceType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x03 \x01(\t\"I\n\nDeviceType\x12\t\n\x05\x44RONE\x10\x00\x12\x1b\n\x17\x42\x41TTERY_CHARGING_SYSTEM\x10\x01\x12\x13\n\x0fWEATHER_STATION\x10\x02\"\xb5\x01\n\tStartInfo\x12 \n\x18\x61ras_update_info_api_url\x18\x01 \x01(\t\x12\x10\n\x08owner_id\x18\x02 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x03 \x01(\t\x12\x17\n\x06\x64rones\x18\x04 \x03(\x0b\x32\x07.Device\x12(\n\x17\x62\x61ttery_charging_system\x18\x05 \x01(\x0b\x32\x07.Device\x12 \n\x0fweather_station\x18\x06 \x01(\x0b\x32\x07.Device\"E\n\x0bGoUpMessage\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"w\n\x08Waypoint\x12\x10\n\x08latitude\x18\x01 \x01(\x02\x12\x11\n\tlongitude\x18\x02 \x01(\x02\x12\x10\n\x08\x61ltitude\x18\x03 \x01(\x02\x12\x14\n\x0cgimbal_pitch\x18\x04 \x01(\x02\x12\x0f\n\x07heading\x18\x05 \x01(\x02\x12\r\n\x05speed\x18\x06 \x01(\x02\"C\n\x0bMissionData\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x1c\n\twaypoints\x18\x02 \x03(\x0b\x32\t.Waypoint\"v\n\x08Response\x12-\n\rresponse_type\x18\x01 \x01(\x0e\x32\x16.Response.ResponseType\x12\x0c\n\x04info\x18\x02 \x01(\t\"-\n\x0cResponseType\x12\x07\n\x03\x41\x43K\x10\x00\x12\x08\n\x04\x44ONE\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\"\x07\n\x05\x45mpty2\x8a\x01\n\x15\x43ontrolServiceActions\x12\"\n\x0cStartTakeoff\x12\x07.Device\x1a\t.Response\x12$\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\t.Response\x12\'\n\x0cStartMission\x12\x0c.MissionData\x1a\t.Response2\xc3\x03\n\x14\x43ontrolServiceEvents\x12,\n\x13StartControlService\x12\n.StartInfo\x1a\t.Response\x12\'\n\x12StopControlService\x12\x06.Empty\x1a\t.Response\x12\"\n\x0cWake_Up_Done\x12\x07.Device\x1a\t.Response\x12\x30\n\x1aTake_Off_Connection_Failed\x12\x07.Device\x1a\t.Response\x12\x33\n\x1dTake_Off_Connected_But_Failed\x12\x07.Device\x1a\t.Response\x12#\n\rTake_Off_Done\x12\x07.Device\x1a\t.Response\x12\"\n\x0cGo_Up_Failed\x12\x07.Device\x1a\t.Response\x12/\n\x19Go_Up_Set_Settings_Failed\x12\x07.Device\x1a\t.Response\x12-\n\x17Go_Up_Set_Settings_Done\x12\x07.Device\x1a\t.Response\x12 \n\nGo_Up_Done\x12\x07.Device\x1a\t.Responseb\x06proto3'
+  serialized_pb=b'\n\x0eprotocol.proto\"\x15\n\x04\x42ool\x12\r\n\x05value\x18\x01 \x01(\x08\"\x96\x01\n\x06\x44\x65vice\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.Device.DeviceType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x13\n\x0b\x61\x63\x63\x65ss_data\x18\x03 \x01(\t\"I\n\nDeviceType\x12\t\n\x05\x44RONE\x10\x00\x12\x1b\n\x17\x42\x41TTERY_CHARGING_SYSTEM\x10\x01\x12\x13\n\x0fWEATHER_STATION\x10\x02\"\xb5\x01\n\tStartInfo\x12 \n\x18\x61ras_update_info_api_url\x18\x01 \x01(\t\x12\x10\n\x08owner_id\x18\x02 \x01(\t\x12\x0f\n\x07\x62\x61se_id\x18\x03 \x01(\t\x12\x17\n\x06\x64rones\x18\x04 \x03(\x0b\x32\x07.Device\x12(\n\x17\x62\x61ttery_charging_system\x18\x05 \x01(\x0b\x32\x07.Device\x12 \n\x0fweather_station\x18\x06 \x01(\x0b\x32\x07.Device\"E\n\x0bGoUpMessage\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x05\x12\x0c\n\x04roll\x18\x03 \x01(\x05\"w\n\x08Waypoint\x12\x10\n\x08latitude\x18\x01 \x01(\x02\x12\x11\n\tlongitude\x18\x02 \x01(\x02\x12\x10\n\x08\x61ltitude\x18\x03 \x01(\x02\x12\x14\n\x0cgimbal_pitch\x18\x04 \x01(\x02\x12\x0f\n\x07heading\x18\x05 \x01(\x02\x12\r\n\x05speed\x18\x06 \x01(\x02\"C\n\x0bMissionData\x12\x16\n\x05\x64rone\x18\x01 \x01(\x0b\x32\x07.Device\x12\x1c\n\twaypoints\x18\x02 \x03(\x0b\x32\t.Waypoint\"v\n\x08Response\x12-\n\rresponse_type\x18\x01 \x01(\x0e\x32\x16.Response.ResponseType\x12\x0c\n\x04info\x18\x02 \x01(\t\"-\n\x0cResponseType\x12\x07\n\x03\x41\x43K\x10\x00\x12\x08\n\x04\x44ONE\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\"\x07\n\x05\x45mpty2\x8a\x01\n\x15\x43ontrolServiceActions\x12\"\n\x0cStartTakeoff\x12\x07.Device\x1a\t.Response\x12$\n\tStartGoUp\x12\x0c.GoUpMessage\x1a\t.Response\x12\'\n\x0cStartMission\x12\x0c.MissionData\x1a\t.Response2\xed\x03\n\x14\x43ontrolServiceEvents\x12,\n\x13StartControlService\x12\n.StartInfo\x1a\t.Response\x12\'\n\x12StopControlService\x12\x06.Empty\x1a\t.Response\x12(\n\x17GetControlServiceStatus\x12\x06.Empty\x1a\x05.Bool\x12\"\n\x0cWake_Up_Done\x12\x07.Device\x1a\t.Response\x12\x30\n\x1aTake_Off_Connection_Failed\x12\x07.Device\x1a\t.Response\x12\x33\n\x1dTake_Off_Connected_But_Failed\x12\x07.Device\x1a\t.Response\x12#\n\rTake_Off_Done\x12\x07.Device\x1a\t.Response\x12\"\n\x0cGo_Up_Failed\x12\x07.Device\x1a\t.Response\x12/\n\x19Go_Up_Set_Settings_Failed\x12\x07.Device\x1a\t.Response\x12-\n\x17Go_Up_Set_Settings_Done\x12\x07.Device\x1a\t.Response\x12 \n\nGo_Up_Done\x12\x07.Device\x1a\t.Responseb\x06proto3'
 )
 
 
@@ -49,8 +49,8 @@ _DEVICE_DEVICETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=96,
-  serialized_end=169,
+  serialized_start=119,
+  serialized_end=192,
 )
 _sym_db.RegisterEnumDescriptor(_DEVICE_DEVICETYPE)
 
@@ -79,10 +79,42 @@ _RESPONSE_RESPONSETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=689,
-  serialized_end=734,
+  serialized_start=712,
+  serialized_end=757,
 )
 _sym_db.RegisterEnumDescriptor(_RESPONSE_RESPONSETYPE)
+
+
+_BOOL = _descriptor.Descriptor(
+  name='Bool',
+  full_name='Bool',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Bool.value', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18,
+  serialized_end=39,
+)
 
 
 _DEVICE = _descriptor.Descriptor(
@@ -127,8 +159,8 @@ _DEVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19,
-  serialized_end=169,
+  serialized_start=42,
+  serialized_end=192,
 )
 
 
@@ -194,8 +226,8 @@ _STARTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=353,
+  serialized_start=195,
+  serialized_end=376,
 )
 
 
@@ -240,8 +272,8 @@ _GOUPMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=355,
-  serialized_end=424,
+  serialized_start=378,
+  serialized_end=447,
 )
 
 
@@ -307,8 +339,8 @@ _WAYPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=426,
-  serialized_end=545,
+  serialized_start=449,
+  serialized_end=568,
 )
 
 
@@ -346,8 +378,8 @@ _MISSIONDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=547,
-  serialized_end=614,
+  serialized_start=570,
+  serialized_end=637,
 )
 
 
@@ -386,8 +418,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=734,
+  serialized_start=639,
+  serialized_end=757,
 )
 
 
@@ -411,8 +443,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=736,
-  serialized_end=743,
+  serialized_start=759,
+  serialized_end=766,
 )
 
 _DEVICE.fields_by_name['type'].enum_type = _DEVICE_DEVICETYPE
@@ -425,6 +457,7 @@ _MISSIONDATA.fields_by_name['drone'].message_type = _DEVICE
 _MISSIONDATA.fields_by_name['waypoints'].message_type = _WAYPOINT
 _RESPONSE.fields_by_name['response_type'].enum_type = _RESPONSE_RESPONSETYPE
 _RESPONSE_RESPONSETYPE.containing_type = _RESPONSE
+DESCRIPTOR.message_types_by_name['Bool'] = _BOOL
 DESCRIPTOR.message_types_by_name['Device'] = _DEVICE
 DESCRIPTOR.message_types_by_name['StartInfo'] = _STARTINFO
 DESCRIPTOR.message_types_by_name['GoUpMessage'] = _GOUPMESSAGE
@@ -433,6 +466,13 @@ DESCRIPTOR.message_types_by_name['MissionData'] = _MISSIONDATA
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Bool = _reflection.GeneratedProtocolMessageType('Bool', (_message.Message,), {
+  'DESCRIPTOR' : _BOOL,
+  '__module__' : 'protocol_pb2'
+  # @@protoc_insertion_point(class_scope:Bool)
+  })
+_sym_db.RegisterMessage(Bool)
 
 Device = _reflection.GeneratedProtocolMessageType('Device', (_message.Message,), {
   'DESCRIPTOR' : _DEVICE,
@@ -492,8 +532,8 @@ _CONTROLSERVICEACTIONS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=746,
-  serialized_end=884,
+  serialized_start=769,
+  serialized_end=907,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartTakeoff',
@@ -538,8 +578,8 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=887,
-  serialized_end=1338,
+  serialized_start=910,
+  serialized_end=1403,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartControlService',
@@ -562,9 +602,19 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetControlServiceStatus',
+    full_name='ControlServiceEvents.GetControlServiceStatus',
+    index=2,
+    containing_service=None,
+    input_type=_EMPTY,
+    output_type=_BOOL,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Wake_Up_Done',
     full_name='ControlServiceEvents.Wake_Up_Done',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -574,7 +624,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Connection_Failed',
     full_name='ControlServiceEvents.Take_Off_Connection_Failed',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -584,7 +634,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Connected_But_Failed',
     full_name='ControlServiceEvents.Take_Off_Connected_But_Failed',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -594,7 +644,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Take_Off_Done',
     full_name='ControlServiceEvents.Take_Off_Done',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -604,7 +654,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Failed',
     full_name='ControlServiceEvents.Go_Up_Failed',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -614,7 +664,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Set_Settings_Failed',
     full_name='ControlServiceEvents.Go_Up_Set_Settings_Failed',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -624,7 +674,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Set_Settings_Done',
     full_name='ControlServiceEvents.Go_Up_Set_Settings_Done',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,
@@ -634,7 +684,7 @@ _CONTROLSERVICEEVENTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Go_Up_Done',
     full_name='ControlServiceEvents.Go_Up_Done',
-    index=9,
+    index=10,
     containing_service=None,
     input_type=_DEVICE,
     output_type=_RESPONSE,

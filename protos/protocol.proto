@@ -9,6 +9,7 @@ service ControlServiceActions{
 service ControlServiceEvents{
     rpc StartControlService(StartInfo) returns (Response);
     rpc StopControlService(Empty) returns (Response);
+    rpc GetControlServiceStatus(Empty) returns (Bool);
 
     rpc Wake_Up_Done(Device) returns (Response);
 
@@ -20,6 +21,10 @@ service ControlServiceEvents{
     rpc Go_Up_Set_Settings_Failed(Device) returns (Response);
     rpc Go_Up_Set_Settings_Done(Device) returns (Response);
     rpc Go_Up_Done(Device) returns (Response);
+}
+
+message Bool {
+    bool value = 1;
 }
 
 message Device {

@@ -151,6 +151,11 @@ class ControlServiceEventsStub(object):
                 request_serializer=protocol__pb2.Empty.SerializeToString,
                 response_deserializer=protocol__pb2.Response.FromString,
                 )
+        self.GetControlServiceStatus = channel.unary_unary(
+                '/ControlServiceEvents/GetControlServiceStatus',
+                request_serializer=protocol__pb2.Empty.SerializeToString,
+                response_deserializer=protocol__pb2.Bool.FromString,
+                )
         self.Wake_Up_Done = channel.unary_unary(
                 '/ControlServiceEvents/Wake_Up_Done',
                 request_serializer=protocol__pb2.Device.SerializeToString,
@@ -203,6 +208,12 @@ class ControlServiceEventsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def StopControlService(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetControlServiceStatus(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -268,6 +279,11 @@ def add_ControlServiceEventsServicer_to_server(servicer, server):
                     servicer.StopControlService,
                     request_deserializer=protocol__pb2.Empty.FromString,
                     response_serializer=protocol__pb2.Response.SerializeToString,
+            ),
+            'GetControlServiceStatus': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetControlServiceStatus,
+                    request_deserializer=protocol__pb2.Empty.FromString,
+                    response_serializer=protocol__pb2.Bool.SerializeToString,
             ),
             'Wake_Up_Done': grpc.unary_unary_rpc_method_handler(
                     servicer.Wake_Up_Done,
@@ -350,6 +366,23 @@ class ControlServiceEvents(object):
         return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/StopControlService',
             protocol__pb2.Empty.SerializeToString,
             protocol__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetControlServiceStatus(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ControlServiceEvents/GetControlServiceStatus',
+            protocol__pb2.Empty.SerializeToString,
+            protocol__pb2.Bool.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
